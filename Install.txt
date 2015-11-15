@@ -7,8 +7,13 @@ I used (C:\MinGW\mingw32\lib\gcc\mingw32\4.8.1\include\c++)
 
 Refer to  this if you are having troubles: http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.cdt.doc.isv%2Freference%2Fapi%2Forg%2Feclipse%2Fcdt%2Fcore%2Fdom%2Fast%2FExpansionOverlapsBoundaryException.html
 
-2. Use Ctrl + B to build all the files.
-3. Hit Run.
-4. You should be able build Ship objects in run time.
+2. Use git to Clone the this repo. Write in the git bash in the folder you want to clone the repo to. 
+git clone https://github.com/Zseselja/Seng330Assignment2
+
+3. Put the files in eclipse and use Ctrl + B to build all the files.
+
+4. Hit Run.
+
+5. You should be able build Ship objects in run time.
 
 
