@@ -9,11 +9,10 @@
 #define SHIP_H_
 
 
-#include "ShipType.h"
+
 #include "Point.h"
-#include <cmath.h>
-#include <stdexcept.h>
-#include <stdlib.h>
+#include <cmath>
+#include <stdexcept>
 #include <iostream>
 
 namespace model
@@ -27,11 +26,12 @@ enum class ShipType {
 		SUB
 	};
 
+
 	class Ship
 	{
 
 	private:
-		ShipType type;
+		ShipType type = static_cast<ShipType>(0);
 		int fullHealth = 0;
 		int health = 0;
 
@@ -130,11 +130,11 @@ enum class ShipType {
 		{
 			if (isVertical())
 			{
-				return abs(head->y - tail->y);
+				return (head->y - tail->y);
 			}
 			else
 			{
-				return abs(head->x - tail->x);
+				return (head->x - tail->x);
 			}
 		}
 		   /*
@@ -167,11 +167,7 @@ enum class ShipType {
 			return intersection;
 		}
 
-		virtual void translate(int dx, int dy)
-		{
-			this->head->translate(dx, dy);
-			this->tail->translate(dx, dy);
-		}
+
 
 		virtual ShipType getType()
 		{
@@ -181,7 +177,7 @@ enum class ShipType {
 		//return how many times this ship has been hit.
 		virtual int getNumHits()
 		{
-			return this->fullHealth - health;
+				return this->fullHealth - health;
 		}
 
 	};

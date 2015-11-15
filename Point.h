@@ -10,7 +10,7 @@
 
 namespace model
 {
-class Point
+	class Point
 	{
 	private:
 		int x;
