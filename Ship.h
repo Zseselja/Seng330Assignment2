@@ -90,11 +90,12 @@ enum class ShipType {
 			this->head = head;
 			this->tail = new Point(head->x + size-1, head->y);
 		}
-		virtual ~Ship(Ship *x , Point head, Point tail)
+
+		virtual ~Ship(Ship *x , Point *head, Point *tail)
 		{
-			delete tail;
-			delete head;
-			delete x;
+			delete *tail;
+			delete *head;
+			delete *x;
 		}
 
 		virtual void decreaseHealth()
