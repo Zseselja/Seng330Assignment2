@@ -1,0 +1,14 @@
+Install.txt
+
+
+1. setup eclipse C/C++.
+Hint: Make sure to and the proper path for your includes.
+I used (C:\MinGW\mingw32\lib\gcc\mingw32\4.8.1\include\c++)
+
+Refer to  this if you are having troubles: http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.cdt.doc.isv%2Freference%2Fapi%2Forg%2Feclipse%2Fcdt%2Fcore%2Fdom%2Fast%2FExpansionOverlapsBoundaryException.html
+
+2. Use Ctrl + B to build all the files.
+3. Hit Run.
+4. You should be able build Ship objects in run time.
+
+
