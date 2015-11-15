@@ -54,14 +54,14 @@ enum class ShipType {
 			bool validShip = false;
 			if (head->x == tail->x)
 			{ //vertical ship
-				if (abs(head->y - tail->y) ==* size-1)
+				if ((head->y - tail->y) ==* size-1)
 				{
 					validShip = true;
 				}
 			}
 			else if (head->y == tail->y)
 			{ //horizontal ship
-				if (abs(head->x - tail->x) == size-1)
+				if ((head->x - tail->x) == size-1)
 				{
 					validShip = true;
 				}
@@ -89,6 +89,12 @@ enum class ShipType {
 
 			this->head = head;
 			this->tail = new Point(head->x + size-1, head->y);
+		}
+		virtual ~Ship(Ship *x , Point head, Point tail)
+		{
+			delete tail;
+			delete head;
+			delete x;
 		}
 
 		virtual void decreaseHealth()
