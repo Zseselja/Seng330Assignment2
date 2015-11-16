@@ -1,6 +1,6 @@
 # Seng330Assignment2
 Assignment2
-This the github Repo for my assignment 2 in Seng330.
+This the github Repo for my assignment 2 in Seng330 written in C++.
 
 
 Inside src is main.cpp which is main part of the project
