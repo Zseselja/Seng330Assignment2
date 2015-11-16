@@ -13,6 +13,7 @@
 #include <iostream>
 #include <ostream>
 #include <istream>
+#include <windows.h>
 
 
 ///
@@ -27,6 +28,12 @@ class Ship{
 		///
 		/// Get Number of the Ship function
 		///
+		Ship(){
+
+		}
+		virtual ~Ship(){
+			std::cout << "Ship distructror called\n";
+		}
 		int getNum(){
 			return this->x;
 		}
@@ -37,7 +44,7 @@ class Ship{
 
 };
 
-///
+///S
 ///	class derivered from Base Ship
 ///
 class battleship : public Ship{
@@ -100,8 +107,8 @@ public:
 		testship1 = new battleship(5);
 		testship2 = new sub(3);
 
-		std::cout << "Creating testship1\n";
-		std::cout << "Creating testship2\n";
+//		std::cout << "Creating testship1\n";
+//		std::cout << "Creating testship2\n";
 	}
 	static Ship* get_testship1(){
 		///
@@ -129,7 +136,7 @@ std::string readline()
 	///
 		std::string line;
 		std::getline(std::cin, line);
-		std::cout  << line << "\n";
+//		std::cout  << line << "\n";
 		return line;
 
 }
@@ -166,6 +173,8 @@ Ship* shipFactory::testship2 = 0;
 		std::cout << "Ship building Prototypes?\n";
 		std::cout << "Please choose 2 ships to build?\n";
 		std::cout << "Your Choices are BATTLESHIP OR SUB\n";
+		bool valid = true;
+		while(valid){
 		std::cout << "What type of ship do you want for testship1?\n";
 		input1 = readline();
 		std::cout << "What type of ship do you want for testship2?\n";
@@ -173,7 +182,7 @@ Ship* shipFactory::testship2 = 0;
 
 
 //		cloning either SUB or BATTLESHIP
-		if(input1 == "SUB"){
+		if(input1 == "SUB" || input1 == "sub"){
 //		cloning SUB
 			input_num1 = 3;
 			ship1 = shipFactory::get_testship2();
@@ -184,7 +193,7 @@ Ship* shipFactory::testship2 = 0;
 			ship1 = shipFactory::get_testship1();
 		}
 
-		if(input2 == "SUB"){
+		if(input2 == "SUB" || input2 == "sub"){
 
 //		cloning SUB
 
@@ -201,10 +210,29 @@ Ship* shipFactory::testship2 = 0;
 
 
 
+// deleting local ship.
 
 
-		delete ship2;
+
+
+		std::cout << "Do you want to make them again? YES/NO\n";
+		input1 = readline();
+			if (input1 == "YES" || input1 == "yes" ){
+				valid = true;
+
+				delete ship1;
+				delete ship2;
+			}else{
+				valid = false;
+			}
+
+
+		}
+
 		delete ship1;
+		delete ship2;
+		std::cout << "Thamks";
+		Sleep(2000);
 
 
 
