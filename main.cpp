@@ -1,76 +1,101 @@
-/*
- * user.cpp
- *
- *  Created on: Nov 14, 2015
- *      Author: Zachary Seselja
- */
-//#include "Point.h"   Ended up adding the classes to one file to simplify.
-//#include "Ship.h"
-//#include "battleship.h"
-//#include "sub.h"
+/// \mainpage
+/// main.cpp
+///
+/// Assignment 2 \n
+/// Created on: Nov 14, 2015 \n
+/// <h4> Author: Zachary Seselja <h4> \n
+///
+///
+///
+///
+
 #include <string>
 #include <iostream>
 #include <ostream>
 #include <istream>
 
 
-
-// Base class
+///
+///	Base class Ship
+///
 class Ship{
+
 	protected:
 		int x;
 
 	public:
-//	Ship(int y){
-//		this->x = y;
-//
-//	}
+		///
+		/// Get Number of the Ship function
+		///
 		int getNum(){
 			return this->x;
 		}
-
+		///
+		/// Clone function
+		///
 		virtual Ship* clone() = 0;
 
 };
 
-//  class derivered from Base
+///
+///	class derivered from Base Ship
+///
 class battleship : public Ship{
 	public:
 		battleship(int y){
 			x = y;
 		}
+		///
+		/// Clone function
+		///
 		Ship* clone(){
 			std::cout << "cloning BATTLESHIP\n";
 			return new battleship(*this);
 		}
+		///
+		/// Destructor function
+		///
 		~battleship(){
 			std::cout << "deleting BATTLESHIP\n";
 		}
 };
-
-//  class derivered from Base
+///
+/// class derivered from Base Ship
+///
 class sub : public Ship{
 	public:
 		sub(int y){
 			x = y;
 		}
+		///
+		/// Clone function
+		///
 		Ship* clone(){
 			std::cout << "cloning SUB\n";
 			return new sub(*this);
 		}
+		///
+		/// Destructor function
+		///
 		~sub(){
 			std::cout << "deleting SUB\n";
 		}
 };
 
 
-
-// Factory class
+///
+/// Factory class for Ships
+///
 class shipFactory{
+// Static template classes
+
 	static Ship* testship1;
 	static Ship* testship2;
 
 public:
+	///
+	///	init function
+	///
 	static void init(){
 		testship1 = new battleship(5);
 		testship2 = new sub(3);
@@ -79,11 +104,15 @@ public:
 		std::cout << "Creating testship2\n";
 	}
 	static Ship* get_testship1(){
-//		CLONING testship1
+		///
+		///	CLONING testship1
+		///
 		return testship1->clone();
 	}
 	static Ship* get_testship2(){
-//		CLONING testship2
+		///
+		///	CLONING testship2
+		///
 		return testship2->clone();
 
 	}
@@ -95,6 +124,9 @@ public:
 
 std::string readline()
 {
+	///
+	/// Function used for reading user input.
+	///
 		std::string line;
 		std::getline(std::cin, line);
 		std::cout  << line << "\n";
@@ -106,10 +138,19 @@ Ship* shipFactory::testship1 = 0;
 Ship* shipFactory::testship2 = 0;
 
 
-
+///
+/// Main Funtion	\n
+/// In the Main the user is prompted to create two \n
+/// Ship Objects. These Ships are either type sub class or \n
+/// battleship class. Both these type of Objects are derived \n
+/// from the Ship Base class.
+///
+///
 	int main(){
 
-
+		///
+		///
+		///
 		int input_num1;
 		int input_num2;
 //		std::string input = " ";
@@ -133,18 +174,20 @@ Ship* shipFactory::testship2 = 0;
 
 //		cloning either SUB or BATTLESHIP
 		if(input1 == "SUB"){
-//			cloning SUB
+//		cloning SUB
 			input_num1 = 3;
 			ship1 = shipFactory::get_testship2();
 
 		}else{
-//			cloning battlesship
+//		cloning battlesship
 			input_num1 = 5;
 			ship1 = shipFactory::get_testship1();
 		}
 
 		if(input2 == "SUB"){
-//			cloning SUB
+
+//		cloning SUB
+
 			input_num2 = 3;
 			ship2 = shipFactory::get_testship2();
 
