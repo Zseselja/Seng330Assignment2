@@ -11,9 +11,14 @@
 
 #include <string>
 #include <iostream>
-#include <ostream>
-#include <istream>
+#include <typeinfo>
 #include <windows.h>
+#include <cstdlib>
+#include <vector>
+#include <fstream>
+
+using namespace std;
+
 
 
 ///
@@ -21,16 +26,15 @@
 ///
 class Ship{
 
-	protected:
-		int x;
+//	protected:
+
 
 	public:
+	int x;
 		///
 		/// Get Number of the Ship function
 		///
-		Ship(){
 
-		}
 		virtual ~Ship(){
 			std::cout << "Ship distructror called\n";
 		}
@@ -44,6 +48,8 @@ class Ship{
 
 };
 
+
+
 ///S
 ///	class derivered from Base Ship
 ///
@@ -56,19 +62,20 @@ class battleship : public Ship{
 		/// Clone function
 		///
 		Ship* clone(){
-			std::cout << "cloning BATTLESHIP\n";
+			std::cout << "Cloning Battleship\n";
 			return new battleship(*this);
 		}
 		///
 		/// Destructor function
 		///
 		~battleship(){
-			std::cout << "deleting BATTLESHIP\n";
+			std::cout << "Deleting Battleship\n";
 		}
 };
 ///
 /// class derivered from Base Ship
 ///
+
 class sub : public Ship{
 	public:
 		sub(int y){
@@ -78,16 +85,18 @@ class sub : public Ship{
 		/// Clone function
 		///
 		Ship* clone(){
-			std::cout << "cloning SUB\n";
+			std::cout << "Cloning Sub\n";
 			return new sub(*this);
 		}
 		///
 		/// Destructor function
 		///
 		~sub(){
-			std::cout << "deleting SUB\n";
+			std::cout << "Deleting Sub\n";
 		}
 };
+
+
 
 
 ///
@@ -127,8 +136,6 @@ public:
 };
 
 
-
-
 std::string readline()
 {
 	///
@@ -153,27 +160,103 @@ Ship* shipFactory::testship2 = 0;
 /// from the Ship Base class.
 ///
 ///
-	int main(){
 
+void serialize( std::vector<Ship*> fleet){
+	ofstream file;
+	file.open("serializeObjects.txt");
+	for(int i = 0; i < fleet.size(); i++){
+
+		int exitShip;
+		exitShip = fleet[i]->x;
+
+		if(exitShip == 3){
+			file << shipFactory::get_testship2()->x << endl;
+			cout << "Saving a Sub\n";
+		}else{
+			file << shipFactory::get_testship1()->x << endl;
+			cout << "Saving a Battleship\n";
+		}
+
+
+	}
+	file.close();
+
+
+};
+
+std::vector<Ship*>  deSerialize( ){
+	std::vector<Ship*> fleet;
+//	ifstream file;
+	Ship *ship;
+
+	ifstream file("serializeObjects.txt");
+
+	string output;
+	while(std::getline(file, output)){
+		if(output.compare("3") == 0){
+
+
+			ship = shipFactory::get_testship2();
+//
+			fleet.push_back(ship);
+			cout << "Loading a Sub\n";
+		}else{
+
+			ship = shipFactory::get_testship1();
+			fleet.push_back(ship);
+			cout << "Loading a Battleship\n";
+		}
+
+	}
+
+	if(ship->x == 0){
+	cout << "     No Fleet to Load\n";
+	cout << "--------------------------------\n";
+	}else{
+	cout << "      Fleet Loaded\n";
+	cout << "--------------------------------\n";
+	}
+	file.close();
+	return fleet;
+};
+
+
+
+
+	int main(){
+		std::cout << "Do you want to load your old ships? YES/NO\n";
+		shipFactory::init();
+		Ship *ship1;
+     	Ship *ship2;
+
+		std::vector<Ship*> fleet;
 		///
 		///
 		///
+
 		int input_num1;
 		int input_num2;
+
 //		std::string input = " ";
 //		Ship *testship;
 		std::string input1;
 		std::string input2;
 
-		shipFactory::init();
+		input1 = readline();
+//		should we load the fleet yes or no?
+		if(input1 == "yes" || input1 =="YES"){
 
-		Ship *ship1;
-		Ship *ship2;
+			fleet = deSerialize();
+		}else{
+//			continue
+		}
 
-		std::cout << "Ship building Prototypes?\n";
+//		std::cout << "Ship building Prototypes?\n";
 		std::cout << "Please choose 2 ships to build?\n";
 		std::cout << "Your Choices are BATTLESHIP OR SUB\n";
 		bool valid = true;
+
+//		start of while loop
 		while(valid){
 		std::cout << "What type of ship do you want for testship1?\n";
 		input1 = readline();
@@ -205,13 +288,8 @@ Ship* shipFactory::testship2 = 0;
 			input_num2 = 5;
 			ship2 = shipFactory::get_testship1();
 		}
-
-
-
-
-
-// deleting local ship.
-
+		fleet.push_back(ship1);
+		fleet.push_back(ship2);
 
 
 
@@ -220,18 +298,34 @@ Ship* shipFactory::testship2 = 0;
 			if (input1 == "YES" || input1 == "yes" ){
 				valid = true;
 
-				delete ship1;
-				delete ship2;
+//				continue on
 			}else{
+				std::cout << "Do you want to save? YES/NO\n";
 				valid = false;
 			}
 
 
 		}
+		input1 = readline();
+		if(input1 == "yes" || input1 =="YES"){
+					serialize(fleet);
+		cout << "      Fleet Saved\n";
+		cout << "--------------------------------\n";
+			}else{
+		cout << "      Fleet Being Deleted\n";
+		cout << "--------------------------------\n";
+		//			continue
+			}
 
-		delete ship1;
-		delete ship2;
-		std::cout << "Thamks";
+
+
+//		Deleting contents of fleet
+		int x  = 0;
+		for(x ; x < fleet.size(); x++){
+			delete fleet[x];
+		}
+
+		std::cout << "\nThank you\n";
 		Sleep(2000);
 
 
