@@ -1,0 +1,78 @@
+[==========] Running 8 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 8 tests from mainTest_ship
+[ RUN      ] mainTest_ship.Ship
+..\test\mainTest.cpp:35: Failure
+Value of: 0
+Expected: ship1->x
+Which is: 1131784192
+[  FAILED  ] mainTest_ship.Ship (0 ms)
+[ RUN      ] mainTest_ship.shipFactoryBattle
+[       OK ] mainTest_ship.shipFactoryBattle (0 ms)
+[ RUN      ] mainTest_ship.shipFactorySub
+[       OK ] mainTest_ship.shipFactorySub (0 ms)
+[ RUN      ] mainTest_ship.shipFactory
+..\test\mainTest.cpp:64: Failure
+Value of: ship2->x
+  Actual: 5
+Expected: ship1->x
+Which is: 3
+[  FAILED  ] mainTest_ship.shipFactory (0 ms)
+[ RUN      ] mainTest_ship.Ship
+..\contrib\gtest\gtest-all.cc:3473: Failure
+Failed
+All tests in the same test case must use the same test fixture
+class.  However, in test case mainTest_ship,
+you defined test Ship and test Ship
+using two different test fixture classes.  This can happen if
+the two classes are from different namespaces or translation
+units and have the same name.  You should probably rename one
+of the classes to put the tests into different test cases.
+[  FAILED  ] mainTest_ship.Ship (0 ms)
+[ RUN      ] mainTest_ship.shipFactoryBattle
+..\contrib\gtest\gtest-all.cc:3473: Failure
+Failed
+All tests in the same test case must use the same test fixture
+class.  However, in test case mainTest_ship,
+you defined test Ship and test shipFactoryBattle
+using two different test fixture classes.  This can happen if
+the two classes are from different namespaces or translation
+units and have the same name.  You should probably rename one
+of the classes to put the tests into different test cases.
+[  FAILED  ] mainTest_ship.shipFactoryBattle (1 ms)
+[ RUN      ] mainTest_ship.shipFactorySub
+..\contrib\gtest\gtest-all.cc:3473: Failure
+Failed
+All tests in the same test case must use the same test fixture
+class.  However, in test case mainTest_ship,
+you defined test Ship and test shipFactorySub
+using two different test fixture classes.  This can happen if
+the two classes are from different namespaces or translation
+units and have the same name.  You should probably rename one
+of the classes to put the tests into different test cases.
+[  FAILED  ] mainTest_ship.shipFactorySub (0 ms)
+[ RUN      ] mainTest_ship.shipFactory
+..\contrib\gtest\gtest-all.cc:3473: Failure
+Failed
+All tests in the same test case must use the same test fixture
+class.  However, in test case mainTest_ship,
+you defined test Ship and test shipFactory
+using two different test fixture classes.  This can happen if
+the two classes are from different namespaces or translation
+units and have the same name.  You should probably rename one
+of the classes to put the tests into different test cases.
+[  FAILED  ] mainTest_ship.shipFactory (0 ms)
+[----------] 8 tests from mainTest_ship (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 8 tests from 1 test case ran. (1 ms total)
+[  PASSED  ] 2 tests.
+[  FAILED  ] 6 tests, listed below:
+[  FAILED  ] mainTest_ship.Ship
+[  FAILED  ] mainTest_ship.shipFactory
+[  FAILED  ] mainTest_ship.Ship
+[  FAILED  ] mainTest_ship.shipFactoryBattle
+[  FAILED  ] mainTest_ship.shipFactorySub
+[  FAILED  ] mainTest_ship.shipFactory
+
+ 6 FAILED TESTS

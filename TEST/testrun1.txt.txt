@@ -1,0 +1,30 @@
+[==========] Running 2 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 2 tests from mainTest_ship
+[ RUN      ] mainTest_ship.Ship
+..\test\mainTest.cpp:37: Failure
+Value of: 5
+Expected: ship1->x
+Which is: 1130432512
+[  FAILED  ] mainTest_ship.Ship (0 ms)
+[ RUN      ] mainTest_ship.Ship
+..\contrib\gtest\gtest-all.cc:3473: Failure
+Failed
+All tests in the same test case must use the same test fixture
+class.  However, in test case mainTest_ship,
+you defined test Ship and test Ship
+using two different test fixture classes.  This can happen if
+the two classes are from different namespaces or translation
+units and have the same name.  You should probably rename one
+of the classes to put the tests into different test cases.
+[  FAILED  ] mainTest_ship.Ship (0 ms)
+[----------] 2 tests from mainTest_ship (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test case ran. (0 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 2 tests, listed below:
+[  FAILED  ] mainTest_ship.Ship
+[  FAILED  ] mainTest_ship.Ship
+
+ 2 FAILED TESTS
