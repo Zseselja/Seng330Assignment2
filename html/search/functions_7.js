@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_7ebattleship',['~battleship',['../classbattleship.html#a57f81f7d9e462e57c0a05655e649e591',1,'battleship']]],
-  ['_7esub',['~sub',['../classsub.html#a955db17b048c22344993f06b8fdbd167',1,'sub']]]
+  ['serialize',['serialize',['../main_8cpp.html#a152ef7693b34147936e5fdb652c22b0b',1,'main.cpp']]],
+  ['sub',['sub',['../classsub.html#a7431c176e6bed30cab0a00030a72297a',1,'sub']]]
 ];

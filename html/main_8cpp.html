@@ -89,8 +89,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;ostream&gt;</code><br />
-<code>#include &lt;istream&gt;</code><br />
+<code>#include &lt;typeinfo&gt;</code><br />
+<code>#include &lt;windows.h&gt;</code><br />
+<code>#include &lt;cstdlib&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -107,10 +110,33 @@ Classes</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a81554a928da199b718920f52af136495"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a81554a928da199b718920f52af136495">readline</a> ()</td></tr>
 <tr class="separator:a81554a928da199b718920f52af136495"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a152ef7693b34147936e5fdb652c22b0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a152ef7693b34147936e5fdb652c22b0b">serialize</a> (std::vector&lt; <a class="el" href="class_ship.html">Ship</a> * &gt; fleet)</td></tr>
+<tr class="separator:a152ef7693b34147936e5fdb652c22b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59e5d3bef42adf594beada5fb581ab6f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_ship.html">Ship</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a59e5d3bef42adf594beada5fb581ab6f">deSerialize</a> ()</td></tr>
+<tr class="separator:a59e5d3bef42adf594beada5fb581ab6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a59e5d3bef42adf594beada5fb581ab6f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_ship.html">Ship</a>*&gt; deSerialize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>DeSerialize loads the contents of serializeObjects.txt <br />
+To: fleet <br />
+This provides the user the abblity to use their saved objects<br />
+</p>
+
+</div>
+</div>
 <a class="anchor" id="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -144,6 +170,26 @@ from the <a class="el" href="class_ship.html">Ship</a> Base class. </p>
       </table>
 </div><div class="memdoc">
 <p>Function used for reading user input.</p>
+
+</div>
+</div>
+<a class="anchor" id="a152ef7693b34147936e5fdb652c22b0b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void serialize </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_ship.html">Ship</a> * &gt;&#160;</td>
+          <td class="paramname"><em>fleet</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Serialize saves the contents of fleet <br />
+To:serializeObjects.txt<br />
+This provides the user the abblity to save their objects<br />
+</p>
 
 </div>
 </div>

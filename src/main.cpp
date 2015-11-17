@@ -152,15 +152,13 @@ Ship* shipFactory::testship1 = 0;
 Ship* shipFactory::testship2 = 0;
 
 
-///
-/// Main Funtion	\n
-/// In the Main the user is prompted to create two \n
-/// Ship Objects. These Ships are either type sub class or \n
-/// battleship class. Both these type of Objects are derived \n
-/// from the Ship Base class.
-///
-///
 
+
+///
+/// Serialize saves the contents of fleet \n
+/// To:serializeObjects.txt\n
+/// This provides the user the abblity to save their objects\n
+///
 void serialize( std::vector<Ship*> fleet){
 	ofstream file;
 	file.open("serializeObjects.txt");
@@ -183,6 +181,11 @@ void serialize( std::vector<Ship*> fleet){
 
 
 };
+///
+/// DeSerialize loads the contents of serializeObjects.txt \n
+/// To: fleet \n
+/// This provides the user the abblity to use their saved objects\n
+///
 
 std::vector<Ship*>  deSerialize( ){
 	std::vector<Ship*> fleet;
@@ -222,6 +225,14 @@ std::vector<Ship*>  deSerialize( ){
 
 
 
+///
+/// Main Funtion	\n
+/// In the Main the user is prompted to create two \n
+/// Ship Objects. These Ships are either type sub class or \n
+/// battleship class. Both these type of Objects are derived \n
+/// from the Ship Base class.
+///
+///
 
 	int main(){
 		std::cout << "Do you want to load your old ships? YES/NO\n";
